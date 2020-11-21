@@ -3,9 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" src="./assets/css/style.css">
 </head>
-<body>
-    
+<body>   
+    <header class = "header">
+        <h1 class = "headerTitle">Weather Dashboard</h1>
+    </header>
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-3">
+                <h4>Select a city:</h4>
+                city:<input class = "cityEntry" type = "text"><span id = "searchCity" class="oi oi-magnifying-glass"></span>
+
+            </div>
+            <div class = "col-9">
+                <div class = "row currentCityData">
+
+                </div>
+                <div class = "row"> 
+                    <h3>5-Day Forecast</h3>
+                </div>
+                <div class = "row">
+                    <div class = "day0"></div>
+                    <div class = "day1"></div>
+                    <div class = "day2"></div>
+                    <div class = "day3"></div>
+                    <div class = "day4"></div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
