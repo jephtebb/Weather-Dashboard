@@ -1,0 +1,11 @@
+
+
+.forecastData{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.dayForecast{
+    background-color:lightskyblue;
+    border-radius: 5px;
+}

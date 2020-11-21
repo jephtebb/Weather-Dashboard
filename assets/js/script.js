@@ -8,8 +8,6 @@ $("#searchCity").on("click", function () {
         cityEntry[i] = cityEntry[i].charAt(0).toUpperCase() + cityEntry[i].substring(1);
     }
     cityEntry = cityEntry.join(' ');
-    console.log(cityEntry);
-
     var currentApi = `https://api.openweathermap.org/data/2.5/weather?q=${cityEntry}&appid=${apiKey}`
     fetch(currentApi).then(function (response) {
         if (response.ok) {
@@ -19,8 +17,6 @@ $("#searchCity").on("click", function () {
             console.log(data);
             var longitude = data.coord['lon'];
             var latitude = data.coord['lat'];
-            console.log(longitude);
-            console.log(latitude);
             currCityData(cityEntry, longitude, latitude);
         })
 
@@ -61,11 +57,25 @@ var currCityData = function (cityEntry, lon, lat) {
 
 }
 var forecastCityData = function(data){
+    var forecastData = document.querySelector('.forecastData');
     for (var i = 0; i<5; i++){
-        var temperature = data.daily[i].temp['day'];
-        var humidity = data.daily['humidity'];
+        var eachForecast = document.querySelector('#day'+i);
+        var eachDate = document.createElement('h6');
+        var eachIcon = document.createElement('p');
+        var eachTemp = document.createElement('p');
+        var eachHumidity = document.createElement('p');
+        eachDate.textContent = moment().add(i+1, 'days').format('l');
         console.log(data);
-        console.log(temperature);
+        eachIcon = data.daily[i].weather[0].icon;
+        temperature = data.daily[i].temp['day'];
+        eachTemp.textContent =  'Temp: ' + Math.round(((temperature-273.15)*1.8 +32)) + '°F';
+        eachHumidity.textContent = 'Humidity: ' + data.daily[i].humidity + '%';
+        eachForecast.appendChild(eachDate);
+        eachForecast.appendChild(eachTemp);
+        eachForecast.appendChild(eachHumidity);
+        
+
+
     }
     
 }
