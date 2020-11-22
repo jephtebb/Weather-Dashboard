@@ -79,12 +79,16 @@ var forecastCityData = function(data){
 var loadCities = function(){
     var cityList = JSON.parse(localStorage.getItem('city'));
     cityEntered = cityList;
+    var cityDisplay = document.querySelector('.cityList');
     for (var i = 0; i<cityEntered.length; i++){
         var listOfCities = document.createElement('li');
         listOfCities.textContent = cityEntered[i];
-        listOfCities.setAttribute = ('data-list', i);
+        listOfCities.setAttribute('data-list', i);
+        listOfCities.setAttribute('class','list-group-item');
         console.log(listOfCities);
+        
     }
+    cityDisplay.appendChild(listOfCities);
 
 }
 
