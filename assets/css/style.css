@@ -1,6 +1,11 @@
-
-
-.forecastData{
+.header{
+    background-color:lightskyblue;
+    border-radius: 2px;
+}
+.headerTitle{
+    text-align: center;
+}
+.allForecastData{
     display: flex;
     justify-content: space-between;
     
@@ -8,4 +13,33 @@
 .dayForecast{
     background-color:lightskyblue;
     border-radius: 5px;
+    width:18%
+}
+
+.list-group-item{
+    width:100%;
+    background-color: lightsteelblue;
+}
+.list-group-item:hover{
+    color:rgb(100, 8, 8);
+    background-color:lightslategrey ;
+}
+.currentCityData{
+    border: 3px double lightslategray;
+    border-radius: 7px;
+    background-color: lightsteelblue;
+}
+.fiveDayForecast{
+    text-align: center;
+}
+#searchCity{
+    text-align: center;
+    margin-bottom: 10px;
+    width:100%;
+    padding:6px;
+    background-color: lightsteelblue;
+    border:1px solid rgb(2, 36, 34);
+}
+.cityEntry{
+    width:100%;
 }

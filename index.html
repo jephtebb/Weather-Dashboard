@@ -14,24 +14,22 @@
     </header>
     <div class = "container">
         <div class = "row">
-            <div class = "cityList col-3">
-                <h4>Select a city:</h4>
-                <input class = "cityEntry" type = "text" onfocus="this.value=''" value = "City"><span id = "searchCity" class="oi oi-magnifying-glass"></span>
+            <div class = "cityListAll col-3">
+                <h4>Enter a City:</h4>
+                <input class = "cityEntry input-group-text" type = "text" onfocus="this.value=''" value = "Here!"><span id = "searchCity" class="oi oi-magnifying-glass"></span>
+                <div class = "cityList">
+
+                </div>
 
             </div>
             <div class = "col-9">
-                <div class = "currentCityData">
+                <div class = "cityCurrentData">
 
                 </div>
                 <div class = "row"> 
-                    <h3>5-Day Forecast</h3>
+                    <h3 class = "fiveDayForecast">5-Day Forecast</h3>
                 </div>
-                <div class = "row forecastData">
-                    <div class = "dayForecast" id = "day0"></div>
-                    <div class = "dayForecast" id = "day1"></div>
-                    <div class = "dayForecast" id = "day2"></div>
-                    <div class = "dayForecast" id = "day3"></div>
-                    <div class = "dayForecast" id = "day4"></div>
+                <div class = "row allForecastData">
 
                 </div>
 
