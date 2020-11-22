@@ -1,16 +1,13 @@
 var apiKey = '32823741b8d73ffd72b5e88e55a0b391';
 var cityEntered = [];
-var duplicateCitiesInclude = [];
 var cityCounter = 0;
 $('#searchCity').click(startWeatherSearch);
 $('.cityList').on('click',function(e){
     var cityTargeted = e.target.getAttribute('data-list');
-    console.log(cityTargeted);
      startWeatherSearch(cityTargeted);
 });
 function startWeatherSearch(cityEntry) {
     $('.currentCityData').remove();
-    $('eachForecast').remove();
     var cityEntry = $('.cityEntry').val();
     var cityEntry = cityEntry.toLowerCase().split(' ');
     for (var i = 0; i < cityEntry.length; i++) {
@@ -110,9 +107,12 @@ var forecastCityData = function (data) {
     } 
     loadCities();
 }
+
 var loadCities = function () {
-    var cityList = JSON.parse(localStorage.getItem('city'));
-    cityEntered = cityList;
+    // var cityList = 
+    cityEntered = JSON.parse(localStorage.getItem('city'));
+    console.log(cityEntered);
+
     var cityDisplay = document.querySelector('.cityList');
     for (var i = 0; i < cityEntered.length; i++) {
         var listOfCities = document.createElement('button');
@@ -125,7 +125,8 @@ var loadCities = function () {
     if (cityEntered.length === cityCounter) {
         cityDisplay.appendChild(listOfCities);
     }else{
-        cityCounter--;
+        cityEntered--;
     }
     
 }
+
