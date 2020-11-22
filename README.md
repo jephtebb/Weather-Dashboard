@@ -1,6 +1,6 @@
 # Weather-Dashboard
 ## Purpose
-A little app where one can save activities for business hours
+This app is made to give weather info of any city in the world
 
 ## Built With
 * HTML
