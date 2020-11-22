@@ -1,6 +1,5 @@
 var apiKey = '32823741b8d73ffd72b5e88e55a0b391';
-
-
+var cityEntered = [];
 $("#searchCity").on("click", function () {
     var cityEntry = $('.cityEntry').val();
     var cityEntry = cityEntry.toLowerCase().split(' ');
@@ -11,18 +10,19 @@ $("#searchCity").on("click", function () {
     var currentApi = `https://api.openweathermap.org/data/2.5/weather?q=${cityEntry}&appid=${apiKey}`
     fetch(currentApi).then(function (response) {
         if (response.ok) {
-
+            if (!cityEntered.includes(cityEntry)){
+                cityEntered.push(cityEntry)
+                localStorage.setItem('city',JSON.stringify(cityEntered));
+                console.log(localStorage);
+            }
         }
         response.json().then(function (data) {
             console.log(data);
             var longitude = data.coord['lon'];
             var latitude = data.coord['lat'];
             var icon = data.weather[0].icon;
-        console.log(icon);
             currCityData(cityEntry, longitude, latitude,icon);
         })
-
-
     })
 })
 var currCityData = function (cityEntry, lon, lat,icon) {
@@ -51,13 +51,9 @@ var currCityData = function (cityEntry, lon, lat,icon) {
             currentCityData.appendChild(humid);
             currentCityData.appendChild(windSpeedo);
             currentCityData.appendChild(uvi);
-
-           
             forecastCityData(data);
         })
-
     })
-
 }
 var forecastCityData = function(data){
     var forecastData = document.querySelector('.forecastData');
@@ -77,10 +73,19 @@ var forecastCityData = function(data){
         eachForecast.appendChild(eachIcon);
         eachForecast.appendChild(eachTemp);
         eachForecast.appendChild(eachHumidity);
-        
-
-
     }
-    
+    loadCities();
 }
+var loadCities = function(){
+    var cityList = JSON.parse(localStorage.getItem('city'));
+    cityEntered = cityList;
+    for (var i = 0; i<cityEntered.length; i++){
+        var listOfCities = document.createElement('li');
+        listOfCities.textContent = cityEntered[i];
+        listOfCities.setAttribute = ('data-list', i);
+        console.log(listOfCities);
+    }
+
+}
+
 
